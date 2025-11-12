@@ -16,6 +16,7 @@
 
 ## ファイル構成
 
+### メインスクリプト
 - `final_check.sh`: 最終チェックスクリプト
 - `monthly_check.sh`: 月次チェックスクリプト
 - `archive_maintenance.sh`: アーカイブメンテナンス
@@ -24,9 +25,45 @@
 - `verify_safety.sh`: 安全性検証
 - `verify_system.sh`: システム検証
 
+### Cursor Agent管理スクリプト
+- `cursor_agent.sh`: エージェント起動スクリプト
+- `cursor_agent_status.sh`: エージェント状態確認スクリプト
+- `cursor_agent_followup.sh`: エージェントにフォローアップ指示を送るスクリプト
+- `cursor_agent_delete.sh`: エージェント削除スクリプト
+
+### ドキュメント
+- `CURSOR_AGENTS_API.md`: Cursor Cloud/Background Agents API の詳細ドキュメント
+- `.cursorrules`: Cursor AI 用のプロジェクトルール
+
 ## 使用方法
 
+### 通常のスクリプト
 各スクリプトの詳細は、各ファイル内のコメントを参照してください。
+
+### Cursor Agent の使用
+1. APIキーを設定:
+```bash
+export CURSOR_API_KEY="あなたのキー"
+```
+
+2. エージェントを起動:
+```bash
+./cursor_agent.sh "README.mdを改善して"
+```
+
+3. 状態を確認:
+```bash
+./cursor_agent_status.sh
+# または特定のエージェント
+./cursor_agent_status.sh <agent_id>
+```
+
+4. フォローアップ指示:
+```bash
+./cursor_agent_followup.sh <agent_id> "追加の指示"
+```
+
+詳細は `CURSOR_AGENTS_API.md` を参照してください。
 
 ## 注意事項
 
