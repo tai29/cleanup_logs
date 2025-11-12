@@ -1,0 +1,41 @@
+name: Cursor Agent
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "Agentへの指示（例: READMEを強化して）"
+        required: true
+      branch:
+        description: "PR用ブランチ名（省略可）"
+        required: false
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Launch Cursor Cloud Agent
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+          PROMPT: ${{ github.event.inputs.prompt }}
+          BRANCH: ${{ github.event.inputs.branch }}
+        run: |
+          set -euo pipefail
+          REPO="${{ github.server_url }}/${{ github.repository }}"
+          REF="main"
+          BRANCH_NAME="${BRANCH:-cursor/${{ github.run_id }}}"
+          body=$(jq -n \
+            --arg txt "$PROMPT" \
+            --arg repo "$REPO" \
+            --arg ref  "$REF" \
+            --arg branch "$BRANCH_NAME" \
+            '{prompt:{text:$txt},
+              source:{repository:$repo, ref:$ref},
+              target:{autoCreatePr:true, branchName:$branch}}')
+          curl -sS --fail \
+            -H "Authorization: Bearer $CURSOR_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "$body" \
+            https://api.cursor.com/v0/agents | tee /tmp/resp.json
+          echo "Cursor API Response saved to /tmp/resp.json"
