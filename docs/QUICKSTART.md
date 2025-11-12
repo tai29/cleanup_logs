@@ -90,6 +90,8 @@ chmod +x *.sh
 
 ### 4. CI/CD の設定
 
+> **注意:** `.github/workflows/` 配下のワークフローファイルは権限の都合で手動追加が必要です。GitHub Web UIから直接作成するか、`gh auth refresh -s workflow` で認証スコープを更新してからプッシュしてください。詳細は [GITHUB_ACTIONS_SETUP.md](../GITHUB_ACTIONS_SETUP.md) を参照してください。
+
 ```bash
 ./cursor_agent.sh ".github/workflows/ にCI/CDワークフローを追加して。シェルスクリプトの構文チェックとlintを実行するようにして"
 ```
@@ -119,4 +121,4 @@ curl -H "Authorization: Bearer $CURSOR_API_KEY" \
 
 - [CURSOR_AGENTS_API.md](../CURSOR_AGENTS_API.md) で詳細な API 仕様を確認
 - [README.md](../README.md) でプロジェクト全体の概要を確認
-- `.cursorrules` でプロジェクトのコーディング規約を確認
+- `.cursorrules/` ディレクトリでプロジェクトのコーディング規約を確認
