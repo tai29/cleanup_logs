@@ -1,0 +1,33 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  shell-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck shfmt
+      - name: Lint (shellcheck)
+        run: |
+          set -e
+          files=$(git ls-files '*.sh' || true)
+          if [ -n "$files" ]; then
+            shellcheck $files
+          else
+            echo "No shell scripts to lint."
+          fi
+      - name: Format check (shfmt)
+        run: |
+          files=$(git ls-files '*.sh' || true)
+          if [ -n "$files" ]; then
+            shfmt -d .
+          else
+            echo "No shell scripts to format."
+          fi
