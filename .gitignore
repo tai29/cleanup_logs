@@ -1,0 +1,30 @@
+# ログファイル
+*.log
+*.out
+*.err
+
+# 一時ファイル
+*.tmp
+*.bak
+*.swp
+*~
+
+# macOS固有ファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# チェックサムファイル（自動生成）
+.checksums
+
+# バックアップファイル
+*.backup
+
+# 個人情報を含む可能性のあるファイル
+*.key
+*.pem
+*.secret
+
+# テストファイル
+*_TEST_*.txt
+
