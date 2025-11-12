@@ -1,34 +1,36 @@
-# ログファイル
+# secrets / env
+.env
+.env.*
+*.secret
+*.key
+
+# logs / caches
+logs/
 *.log
 *.out
 *.err
+.tmp/
+.cache/
 
-# 一時ファイル
-*.tmp
-*.bak
-*.swp
-*~
-
-# macOS固有ファイル
+# OS / editor
 .DS_Store
-.AppleDouble
-.LSOverride
+Thumbs.db
+.idea/
+.vscode/
+
+# Python / Node（使ってるなら）
+.venv/
+__pycache__/
+node_modules/
 
 # チェックサムファイル（自動生成）
 .checksums
 
 # バックアップファイル
 *.backup
-
-# 個人情報を含む可能性のあるファイル
-*.key
-*.pem
-*.secret
-
-# 環境変数ファイル
-.env
-.env.local
-.env.*.local
+*.bak
+*.swp
+*~
 
 # テストファイル
 *_TEST_*.txt

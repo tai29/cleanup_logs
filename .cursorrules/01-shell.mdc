@@ -1,0 +1,35 @@
+# シェルスクリプトの禁則事項
+
+## 絶対に禁止
+
+- `rm -rf /` や `rm -rf /*` などの危険な削除コマンド
+- `find` で `-exec` や `-delete` を使う際のパス検証なし
+- ホームディレクトリ全体の削除
+- システムディレクトリ（/bin, /usr, /etc等）への書き込み
+
+## 必須の安全対策
+
+- すべてのスクリプトは `set -euo pipefail` で始める
+- 変数は必ず引用符で囲む: `"$variable"`
+- ファイル操作前に存在確認: `[ -f "$file" ] && rm "$file"`
+- 削除操作はドライラン（dry-run）モードを提供
+- 重要な操作は確認プロンプトを表示
+
+## 推奨パターン
+
+```bash
+# 安全な削除
+if [ -f "$file" ]; then
+    rm "$file"
+fi
+
+# 安全なfind
+find "$TARGET_DIR" -type f -name "*.tmp" -print0 | xargs -0 rm -f
+
+# ドライラン対応
+if [ "${DRY_RUN:-false}" = "true" ]; then
+    echo "DRY RUN: Would delete $file"
+else
+    rm "$file"
+fi
+```

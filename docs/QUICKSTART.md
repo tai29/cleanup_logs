@@ -1,6 +1,6 @@
 # クイックスタートガイド
 
-## セットアップ（5分）
+## セットアップ（5 分）
 
 ### 1. リポジトリのクローン
 
@@ -88,7 +88,7 @@ chmod +x *.sh
 ./cursor_agent.sh "各スクリプトのテストスクリプトを作成して。tests/ ディレクトリに配置して"
 ```
 
-### 4. CI/CDの設定
+### 4. CI/CD の設定
 
 ```bash
 ./cursor_agent.sh ".github/workflows/ にCI/CDワークフローを追加して。シェルスクリプトの構文チェックとlintを実行するようにして"
@@ -96,7 +96,7 @@ chmod +x *.sh
 
 ## トラブルシューティング
 
-### APIキーが無効
+### API キーが無効
 
 ```bash
 # 認証確認
@@ -106,18 +106,17 @@ curl -H "Authorization: Bearer $CURSOR_API_KEY" \
 
 ### エージェントが起動しない
 
-1. APIキーが正しく設定されているか確認
-2. リポジトリURLが正しいか確認（https://github.com/tai29/cleanup_logs）
+1. API キーが正しく設定されているか確認
+2. リポジトリ URL が正しいか確認（https://github.com/tai29/cleanup_logs）
 3. ネットワーク接続を確認
 
-### PRが作成されない
+### PR が作成されない
 
 - `target.autoCreatePr: true` が設定されているか確認
-- GitHubのリポジトリ設定でブランチ保護が有効になっていないか確認
+- GitHub のリポジトリ設定でブランチ保護が有効になっていないか確認
 
 ## 次のステップ
 
-- [CURSOR_AGENTS_API.md](../CURSOR_AGENTS_API.md) で詳細なAPI仕様を確認
+- [CURSOR_AGENTS_API.md](../CURSOR_AGENTS_API.md) で詳細な API 仕様を確認
 - [README.md](../README.md) でプロジェクト全体の概要を確認
 - `.cursorrules` でプロジェクトのコーディング規約を確認
-
