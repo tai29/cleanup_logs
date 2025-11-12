@@ -120,7 +120,7 @@ PR がマージ可能になる条件:
 
 ## pre-commit フック（任意）
 
-ローカルでコミット前にチェックを実行する場合、pre-commitフックを設定できます。
+ローカルでコミット前にチェックを実行する場合、pre-commit フックを設定できます。
 
 ### 例: `.pre-commit-config.yaml`
 
@@ -130,14 +130,14 @@ repos:
     rev: v0.9.0.6
     hooks:
       - id: shellcheck
-        args: ['--severity=warning']
-  
+        args: ["--severity=warning"]
+
   - repo: https://github.com/scop/pre-commit-shfmt
     rev: v3.7.0-4
     hooks:
       - id: shfmt
-        args: ['-w', '-s', '-i', '2']
-  
+        args: ["-w", "-s", "-i", "2"]
+
   - repo: local
     hooks:
       - id: syntax-check
@@ -160,4 +160,4 @@ pre-commit install
 pre-commit run --all-files
 ```
 
-> **注意:** pre-commitは任意の設定です。必須ではありませんが、ローカルでの品質チェックに有用です。
+> **注意:** pre-commit は任意の設定です。必須ではありませんが、ローカルでの品質チェックに有用です。
