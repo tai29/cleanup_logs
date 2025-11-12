@@ -71,23 +71,9 @@ export CURSOR_API_KEY="あなたのキー"
 
 ### 前提条件
 
-Makefileを使用する場合、以下のツールが必要です：
+Makefileを使用する場合、以下のツールが必要です: `shellcheck`, `shfmt`, `jq`, `curl`
 
-- `shellcheck`: シェルスクリプトのlint
-- `shfmt`: シェルスクリプトのフォーマッタ
-- `jq`: JSON処理（Cursor Agentスクリプトで使用）
-- `curl`: HTTPリクエスト（Cursor Agentスクリプトで使用）
-
-インストール例:
-```bash
-# macOS
-brew install shellcheck shfmt jq
-
-# Linux (apt)
-sudo apt-get install shellcheck shfmt jq
-
-# curlは通常プリインストール済み
-```
+インストール: `brew install shellcheck shfmt jq` (macOS) または `sudo apt-get install shellcheck shfmt jq` (Linux)
 
 ### 基本的な使い方
 
