@@ -1,6 +1,13 @@
 # GitHub Secrets セットアップガイド
 
-## Cursor APIキーの登録
+## 概要
+
+GitHub ActionsでCursor Agentを使用するには、以下のSecretsを設定する必要があります。
+
+- **最小セット（必須）**: `CURSOR_API_KEY` - Cursor Agentを起動するために必要
+- **任意セット**: `CURSOR_WEBHOOK_SECRET` - Webhook連携を使用する場合のみ必要
+
+## Cursor APIキーの登録（必須）
 
 ### 方法1: GitHub CLIで登録（推奨）
 
@@ -21,7 +28,9 @@ gh secret list --repo tai29/cleanup_logs
 5. Secret: あなたのCursor APIキー
 6. 「Add secret」をクリック
 
-## Webhook Secret（オプション）
+## Webhook Secret（任意）
+
+> **注意:** これは任意の設定です。Webhook連携を使用する場合のみ設定してください。
 
 Webhook連携を使用する場合:
 

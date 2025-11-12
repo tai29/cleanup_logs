@@ -33,7 +33,7 @@
 
 ### ドキュメント
 - `CURSOR_AGENTS_API.md`: Cursor Cloud/Background Agents API の詳細ドキュメント
-- `.cursorrules`: Cursor AI 用のプロジェクトルール
+- `.cursorrules/`: Cursor AI 用のプロジェクトルール（ディレクトリ構造）
 
 ## 使用方法
 
@@ -69,12 +69,32 @@ export CURSOR_API_KEY="あなたのキー"
 
 詳細なセットアップ手順は [docs/QUICKSTART.md](docs/QUICKSTART.md) を参照してください。
 
+### 前提条件
+
+Makefileを使用する場合、以下のツールが必要です: `shellcheck`, `shfmt`, `jq`, `curl`
+
+インストール: `brew install shellcheck shfmt jq` (macOS) または `sudo apt-get install shellcheck shfmt jq` (Linux)
+
+### 基本的な使い方
+
 ```bash
 # 1. 環境変数を設定
 export CURSOR_API_KEY="あなたのキー"
 
 # 2. エージェントを起動
 ./cursor_agent.sh "README.mdを改善して"
+
+# または Makefile を使用
+make agent
+```
+
+### 開発ツールの使用
+
+```bash
+make lint    # シェルスクリプトのlint
+make fmt     # フォーマット
+make test    # 構文チェック
+make clean   # 一時ファイル削除
 ```
 
 ## ドキュメント

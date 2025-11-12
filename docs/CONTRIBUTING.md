@@ -21,7 +21,7 @@
 - 関数名は小文字とアンダースコア
 - エラーメッセージは標準エラー出力に
 
-詳細は `.cursorrules` を参照してください。
+詳細は `.cursorrules/` ディレクトリ内の各ファイルを参照してください。
 
 ### コミットメッセージ
 
@@ -34,12 +34,18 @@
 変更をコミットする前に：
 
 ```bash
-# 構文チェック
-bash -n your_script.sh
+# Makefileを使用（推奨）
+make lint    # shellcheck実行
+make test    # 構文チェック
 
-# ShellCheck（インストール済みの場合）
+# または手動で
+bash -n your_script.sh
 shellcheck your_script.sh
 ```
+
+> **注意:** Makefileの使用には `shellcheck`, `shfmt`, `jq`, `curl` が必要です。インストール方法は [README.md](../README.md) を参照してください。
+
+> **注意:** CI/CDワークフローファイル（`.github/workflows/*.yml`）は権限の都合で手動追加が必要です。詳細は [GITHUB_ACTIONS_SETUP.md](../GITHUB_ACTIONS_SETUP.md) を参照してください。
 
 ## プルリクエスト
 
