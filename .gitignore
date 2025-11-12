@@ -25,6 +25,11 @@
 *.pem
 *.secret
 
+# 環境変数ファイル
+.env
+.env.local
+.env.*.local
+
 # テストファイル
 *_TEST_*.txt
 

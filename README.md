@@ -65,8 +65,27 @@ export CURSOR_API_KEY="あなたのキー"
 
 詳細は `CURSOR_AGENTS_API.md` を参照してください。
 
+## クイックスタート
+
+詳細なセットアップ手順は [docs/QUICKSTART.md](docs/QUICKSTART.md) を参照してください。
+
+```bash
+# 1. 環境変数を設定
+export CURSOR_API_KEY="あなたのキー"
+
+# 2. エージェントを起動
+./cursor_agent.sh "README.mdを改善して"
+```
+
+## ドキュメント
+
+- [クイックスタートガイド](docs/QUICKSTART.md) - 5分で始める
+- [Cursor Agents API詳細](CURSOR_AGENTS_API.md) - API仕様
+- [コントリビューションガイド](docs/CONTRIBUTING.md) - 貢献方法
+
 ## 注意事項
 
 - 実行前に必ずバックアップを取ってください
 - 本番環境で使用する前にテスト環境で動作確認を行ってください
+- `.env` ファイルには機密情報を含めないでください（`.env.example` を参照）
 
